@@ -1,0 +1,11 @@
+{
+  "name": "doggymon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "14.13.0",
+    "rxjs": "7.8.1",
+    "typescript": "5.2.2"
+  }
+}
