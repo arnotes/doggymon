@@ -57,5 +57,8 @@ function listenToMessages() {
         else if (content.includes('doggymon')) {
             message.reply('hello po sayo BlueMooner!');
         }
+        else if (content.match(/.*tang.*na.*mo/)) {
+            message.reply('tatay mo shokoy!');
+        }
     })
 }
