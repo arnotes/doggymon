@@ -48,7 +48,7 @@ function listenToMessages() {
         else if (content.includes('wet') && (content.includes('i') || content.includes('ako') || content.includes('im') || content.includes('i\'m'))) {
             await message.reply('baka nana lang yan. ipatingin mo sa doctor');
         }
-        else if (content.includes('morning') || content.includes('umaga')) {
+        else if (content.match(/mo.nin.*/) || content.includes('umaga')) {
             await message.reply('magandang umaga din sayo BleuMooner!');
         }
         else if (content.includes('night') || content.includes('evening') || content.includes('gabi')) {
