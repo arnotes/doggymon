@@ -60,5 +60,8 @@ function listenToMessages() {
         else if (content.match(/.*tang.*na.*mo/)) {
             message.reply('tatay mo shokoy!');
         }
+        else if (content.includes('brb')) {
+            message.reply('wag na bumalik wala ka ambag');
+        }
     })
 }
