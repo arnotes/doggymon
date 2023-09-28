@@ -63,5 +63,8 @@ function listenToMessages() {
         else if (content.includes('brb')) {
             message.reply('wag na bumalik wala ka ambag');
         }
+        else if (content.includes('tulog') || content.includes('sleep')) {
+            message.reply('wag ka na gumising');
+        }
     })
 }
