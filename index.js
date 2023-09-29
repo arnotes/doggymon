@@ -45,7 +45,7 @@ function listenToMessages() {
         else if (content.includes('server') && content.includes('up')) {
             await message.reply('ilong mo naka up');
         }
-        else if (content.match(/\bwet\b/) && (content.includes('i') || content.includes('ako') || content.includes('im') || content.includes('i\'m'))) {
+        else if (content.match(/\bwet\b/) && (content.match(/\bi\b/) || content.match(/\bako\b/) || content.match(/\bim\b/) || content.match(/\bi'm\b/))) {
             await message.reply('baka nana lang yan. ipatingin mo sa doctor');
         }
         else if (content.match(/mo.nin.*/) || content.includes('umaga')) {
@@ -53,9 +53,6 @@ function listenToMessages() {
         }
         else if (content.includes('night') || content.includes('evening') || content.includes('gabi')) {
             await message.reply('magandang gabi din sayo BleuMooner!');
-        }
-        else if (content.includes('doggymon')) {
-            message.reply('hello po sayo BlueMooner!');
         }
         else if (content.match(/.*tang.*na.*mo/)) {
             message.reply('tatay mo shokoy!');
@@ -65,6 +62,9 @@ function listenToMessages() {
         }
         else if (content.includes('tulog') || content.includes('sleep')) {
             message.reply('wag ka na gumising');
+        }
+        else if (content.includes('doggymon') || message?.mentions?.has(client.user.id)) {
+            message.reply('dont mention me. di tayo close.');
         }
     })
 }
