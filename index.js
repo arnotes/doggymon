@@ -2,8 +2,21 @@
 const { Client, Events, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
 
+const pepTalkGreetings = [
+    "Hello, {{sender}}. Tayo na at magsagawa ng misyon!",
+    "{{sender}}, handa ka na ba? Tara na at mag-aventura!",
+    "Hala, {{sender}}. Laban tayo sa kakaibang mundo!",
+    "Hey, {{sender}}. Tara, sa ating tagumpay!",
+    "Kamusta, {{sender}}? Tara na, andito ang pagkakataon!",
+    "{{sender}}, handang-handa ka na ba? Tara, akyat sa bundok!",
+    "Hello, {{sender}}. Sa ating paglalakbay, tagumpay ang layunin!",
+    "{{sender}}, tayo'y isang hakbang na lang sa kaganapan. Laban!",
+    "Hoy, {{sender}}! Ang iyong kaharian ay naghintay para sa iyo!",
+    "Hello, {{sender}}. Sa ating pag-alsa, magtatagumpay tayo!"
+];
+
 // Create a new client instance
-const client = new Client({ 
+const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
@@ -35,6 +48,20 @@ function listenToMessages() {
         if (message.author.bot) {
             return;
         }
+
+        //----------basic greeting---------------
+        const greetingsMap = new Map();
+        const sender = message.author;
+        const lastGreeted = greetingsMap.get(sender.id);
+        const now = new Date();
+        if (!lastGreeted || ((now - lastGreeted) / 1000 * 60 * 60) > 12) {
+            greetingsMap.set(sender.id, now);
+            const randomNumber = Math.floor(Math.random() * 10);
+            const greeting = pepTalkGreetings[randomNumber].replace('{{sender}}', sender.toString());
+            await message.reply(greeting);
+            return;
+        }
+        //----------basic greeting---------------
 
         const content = message.content.toLowerCase();
         if (content.includes('test')) {
