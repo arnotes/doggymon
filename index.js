@@ -64,7 +64,7 @@ function listenToMessages() {
             message.reply('wag ka na gumising');
         }
         else if (content.includes('doggymon') || message?.mentions?.has(client.user.id)) {
-            message.reply('dont mention me. di tayo close.');
+            message.reply('di tayo close');
         }
     })
 }
