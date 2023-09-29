@@ -45,7 +45,7 @@ function listenToMessages() {
         else if (content.includes('server') && content.includes('up')) {
             await message.reply('ilong mo naka up');
         }
-        else if (content.includes('wet') && (content.includes('i') || content.includes('ako') || content.includes('im') || content.includes('i\'m'))) {
+        else if (content.match(/\bwet\b/) && (content.includes('i') || content.includes('ako') || content.includes('im') || content.includes('i\'m'))) {
             await message.reply('baka nana lang yan. ipatingin mo sa doctor');
         }
         else if (content.match(/mo.nin.*/) || content.includes('umaga')) {
