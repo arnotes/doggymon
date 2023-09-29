@@ -28,6 +28,8 @@ client.login(token);
 function listenToMessages() {
     console.log('listening to messages!');
     client.on('messageCreate', async (message) => {
+        console.log(client.user);
+        console.log('-----------------------');
         console.log(message);
 
         if (message.author.bot) {
@@ -63,7 +65,7 @@ function listenToMessages() {
         else if (content.includes('tulog') || content.includes('sleep')) {
             message.reply('wag ka na gumising');
         }
-        else if (content.includes('doggymon') || message?.mentions?.has(client.user.id)) {
+        else if (content.includes('doggymon') || message?.mentions?.users?.has(client.user.id)) {
             message.reply('di tayo close');
         }
     })
