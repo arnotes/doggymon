@@ -1,7 +1,7 @@
 // Require the necessary discord.js classes
 const { Client, Events, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
-
+const greetingsMap = {};
 const pepTalkGreetings = [
     "Hello, {{sender}}. Tayo na at magsagawa ng misyon!",
     "{{sender}}, handa ka na ba? Tara na at mag-aventura!",
@@ -50,18 +50,18 @@ function listenToMessages() {
         }
 
         //----------basic greeting---------------
-        const greetingsMap = new Map();
         const sender = message.author;
-        const lastGreeted = greetingsMap.get(sender.id);
+        const lastGreeted = greetingsMap[sender.id];
         const now = new Date();
         if (!lastGreeted || ((now - lastGreeted) / (1000 * 60 * 60)) > 12) {
-            greetingsMap.set(sender.id, now);
+            greetingsMap[sender.id] = now.getTime();
             const randomNumber = Math.floor(Math.random() * 10);
             const greeting = pepTalkGreetings[randomNumber].replace('{{sender}}', sender.toString());
             await message.reply(greeting);
             return;
         }
         //----------basic greeting---------------
+
 
         const content = message.content.toLowerCase();
         if (content.includes('test')) {
