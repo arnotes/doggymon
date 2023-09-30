@@ -54,7 +54,7 @@ function listenToMessages() {
         const sender = message.author;
         const lastGreeted = greetingsMap.get(sender.id);
         const now = new Date();
-        if (!lastGreeted || ((now - lastGreeted) / 1000 * 60 * 60) > 12) {
+        if (!lastGreeted || ((now - lastGreeted) / (1000 * 60 * 60)) > 12) {
             greetingsMap.set(sender.id, now);
             const randomNumber = Math.floor(Math.random() * 10);
             const greeting = pepTalkGreetings[randomNumber].replace('{{sender}}', sender.toString());
