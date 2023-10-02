@@ -1,5 +1,5 @@
 // Require the necessary discord.js classes
-const { Client, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Events, GatewayIntentBits, MessageType } = require('discord.js');
 const { token } = require('./config.json');
 const greetingsMap = {};
 const pepTalkGreetings = [
@@ -50,16 +50,16 @@ function listenToMessages() {
         }
 
         //----------basic greeting---------------
-        const sender = message.author;
-        const lastGreeted = greetingsMap[sender.id];
-        const now = new Date();
-        if (!lastGreeted || ((now - lastGreeted) / (1000 * 60 * 60)) > 12) {
-            greetingsMap[sender.id] = now.getTime();
-            const randomNumber = Math.floor(Math.random() * 10);
-            const greeting = pepTalkGreetings[randomNumber].replace('{{sender}}', sender.toString());
-            await message.reply(greeting);
-            return;
-        }
+        // const sender = message.author;
+        // const lastGreeted = greetingsMap[sender.id];
+        // const now = new Date();
+        // if (!lastGreeted || ((now - lastGreeted) / (1000 * 60 * 60)) > 12) {
+        //     greetingsMap[sender.id] = now.getTime();
+        //     const randomNumber = Math.floor(Math.random() * 10);
+        //     const greeting = pepTalkGreetings[randomNumber].replace('{{sender}}', sender.toString());
+        //     await message.reply(greeting);
+        //     return;
+        // }
         //----------basic greeting---------------
 
 
@@ -83,17 +83,17 @@ function listenToMessages() {
         else if (content.includes('night') || content.includes('evening') || content.includes('gabi')) {
             await message.reply('magandang gabi din sayo BleuMooner!');
         }
-        else if (content.match(/.*tang.*na.*mo/)) {
-            message.reply('tatay mo shokoy!');
+        else if (content.match(/.*tang\b.*na\b.*mo\b/)) {
+            await message.reply('tatay mo shokoy!');
         }
         else if (content.includes('brb')) {
-            message.reply('wag na bumalik wala ka ambag');
+            message.reply('make sure you come back beshy!');
         }
-        else if (content.includes('tulog') || content.includes('sleep')) {
-            message.reply('wag ka na gumising');
-        }
-        else if (content.includes('doggymon') || message?.mentions?.users?.has(client.user.id)) {
+        else if (!message.type != MessageType.Reply && (content.includes('doggymon') || message?.mentions?.users?.has(client.user.id))) {
             message.reply('di tayo close');
+        }
+        else if(content.match(/\bpekpek\b/) || content.match(/\bfekfek\b/)) {
+            await message.reply('pekpek ng mama mo yung sa kaliwa. https://pbs.twimg.com/media/EVNo_ncUUAYZkx7.jpg');
         }
     })
 }
