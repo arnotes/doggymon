@@ -80,9 +80,9 @@ function listenToMessages() {
         else if (content.match(/mo.nin.*/) || content.includes('umaga')) {
             await message.reply('magandang umaga din sayo BleuMooner!');
         }
-        else if (content.includes('night') || content.includes('evening') || content.includes('gabi')) {
-            await message.reply('magandang gabi din sayo BleuMooner!');
-        }
+        // else if (content.includes('night') || content.includes('evening') || content.includes('gabi')) {
+        //     await message.reply('magandang gabi din sayo BleuMooner!');
+        // }
         else if (content.match(/.*tang\b.*na\b.*mo\b/)) {
             await message.reply('tatay mo shokoy!');
         }
