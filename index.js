@@ -92,7 +92,7 @@ function listenToMessages() {
         else if (!message.type != MessageType.Reply && (content.includes('doggymon') || message?.mentions?.users?.has(client.user.id))) {
             message.reply('di tayo close');
         }
-        else if(content.match(/\bpekpek\b/) || content.match(/\bfekfek\b/)) {
+        else if(content.match(/\bpekpek\b/) || content.match(/\bfekfek\b/) || content.match(/\blalat\b/) || content.match(/\bbilat\b/)) {
             await message.reply('pekpek ng mama mo yung sa kaliwa. https://pbs.twimg.com/media/EVNo_ncUUAYZkx7.jpg');
         }
     })
