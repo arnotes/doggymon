@@ -69,7 +69,7 @@ function listenToMessages() {
             await message.reply('mama mo test');
         }
         else if (content.match(/\blolo\b/)) {
-            await message.reply('lolo mo naka skirt');
+            await message.reply('lolo mo naka g-string');
         }
         else if (content.match(/\bmama\b/)) {
             await message.reply('paki sabi sa mama mo. mahal ko pa rin siya.');
