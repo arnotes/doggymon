@@ -68,8 +68,11 @@ function listenToMessages() {
             await message.react('🧪');
             await message.reply('mama mo test');
         }
-        else if (content.includes('mama mo')) {
-            await message.reply('tatay mo transgender');
+        else if (content.match(/\blolo\b/)) {
+            await message.reply('lolo mo naka skirt');
+        }
+        else if (content.match(/\bmama\b/)) {
+            await message.reply('paki sabi sa mama mo. mahal ko pa rin siya.');
         }
         else if (content.includes('server') && content.includes('up')) {
             await message.reply('ilong mo naka up');
